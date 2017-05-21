@@ -1,0 +1,14 @@
+Package: TeleFunc
+Type: Package
+Title: Acoustic Telemetry Analysis
+Version: 0.0.0.9000
+Date: 2017-05-21
+Authors@R: person("Connor", "White", email = "Connor.White@gmail.com",
+                  role = c("aut", "cre"))
+Description: Assorted functions with timeseries data
+License: MIT + file LICENSE
+Imports:
+    plyr,
+    raster,
+    proj4
+RoxygenNote: 5.0.1
