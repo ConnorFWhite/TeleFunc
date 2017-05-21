@@ -19,17 +19,6 @@ shapePlot<-function(x, y, shapeX=NULL,shapeY=NULL,ang=0,exp=1,col="lightblue4"){
 }
 
 
-#Add a square that is a potential tag
-tag<-function(x, y ,ang=0,exp=1,col="orange"){
-  
-  xlocs<-c(-0.25,-.25,.25,.25)
-  
-  ylocs<- c(-.25,.25,.25,-.25)
-  
-  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, col=col)
-}
-
-
 #Add a polygon of a shark from an overhead perspective
 sharkback<-function(x, y, ang=0,exp=1,col="lightblue4"){
   
