@@ -1,5 +1,7 @@
 \name{shark}
 \alias{shark}
+\alias{sharkback}
+\alias{sharkhead}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 plot a profile of a shark
@@ -9,27 +11,30 @@ plot a profile of a shark
 }
 \usage{
 shark(x, y, ang = 0, exp = 1, col = "lightblue4")
+sharkback(x, y, ang = 0, exp = 1, col = "lightblue4")
+sharkhead(x, y, ang = 0, exp = 1, col = "lightblue4")
+
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{
-%%     ~~Describe \code{x} here~~
+x location of the center of the shark
 }
   \item{y}{
-%%     ~~Describe \code{y} here~~
+y location of the center of the shark
 }
   \item{ang}{
-%%     ~~Describe \code{ang} here~~
+angle(in degrees) of the rotation of the shark
 }
   \item{exp}{
-%%     ~~Describe \code{exp} here~~
+expansion factor of the shark
 }
   \item{col}{
-%%     ~~Describe \code{col} here~~
+color of the fill of the shark
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+wrapper around shapePlot with built in shapes for shark profiles
 }
 \value{
 %%  ~Describe the value returned
@@ -42,7 +47,7 @@ shark(x, y, ang = 0, exp = 1, col = "lightblue4")
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Connor F. White
 }
 \note{
 %%  ~~further notes~~
