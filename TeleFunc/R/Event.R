@@ -49,7 +49,7 @@ event<-function(x,ends=0, nas=TRUE,duration = c(NA,NA)){
     if(!is.na(duration[2])){
       maxD<-duration[2]
     }
-    loc<-which(dur>=min & dur<=max)
+    loc<-which(dur>=minD & dur<=maxD)
     start<-start[loc]
     end<-end[loc]
   }
