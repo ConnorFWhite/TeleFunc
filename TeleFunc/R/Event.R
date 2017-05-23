@@ -92,4 +92,11 @@ eventFunc<-function(dat,events,fun=function(x){mean(x,na.rm=TRUE)}){
   return(out)
 }
 
+eventVector<-function(events){
+  vec<-unlist(apply(events,1,function(x){
+    x[1]:x[2]
+  }))
+  return(vec)
+}
+
 
