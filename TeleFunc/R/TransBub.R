@@ -71,10 +71,10 @@ plot.null<-function(locs,dect=NULL,xlim=NULL,ylim=NULL){
   }
   if(is.null(dect)){
     plot(locs[,2]~locs[,3],type="n",ylab=" ",xlab= " ",
-         xlim=xlim,ylim=ylim, yaxt="n",xaxt="n")
+         xlim=xlim,ylim=ylim, yaxt="n",xaxt="n",asp=1)
   } else{
      plot(locs[(dect>0),2]~locs[(dect>0),3],type="n",ylab=" ",xlab= " ",
-       xlim=xlim,ylim=ylim, yaxt="n",xaxt="n")
+       xlim=xlim,ylim=ylim, yaxt="n",xaxt="n",asp=1)
   }
 }
 
@@ -86,7 +86,7 @@ plot.bub<-function(locs,size=1,pch=21,col="black",bg="lightBlue"){
 
 plot.tran<-function(locs, lwd=1, col="black",bend = .05, head=.1){
   locs_loc<-locsloc(locs)
-  locs_loc<-locs_loc[which(lwd>0),]
+  locs_loc<-matrix(locs_loc[which(lwd>0),],ncol=2)
   lwd<-lwd[which(lwd>0)]
   for(i in 1: nrow(locs_loc)){
     l<-bend(c(locs[locs_loc[i,1],3], locs[locs_loc[i,1],2]),
