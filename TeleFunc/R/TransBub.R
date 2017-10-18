@@ -104,8 +104,9 @@ plot.transmat<-function(locs,
                         bub.pch=21,bub.cex=1,bub.col="black",bub.bg=rgb(0,0,1,.5),
                         line.lwd=1,line.col="black",bend=.1,head=.1){
   plot.bub(locs,size=bub.cex,pch=bub.pch,col=bub.col,bg=bub.bg)
-  plot.tran(locs,lwd=line.lwd,col=line.col,bend=bend,head=head)
-  
+  if(any(line.lwd)>0){
+      plot.tran(locs,lwd=line.lwd,col=line.col,bend=bend,head=head)
+  }
 }
 
 
