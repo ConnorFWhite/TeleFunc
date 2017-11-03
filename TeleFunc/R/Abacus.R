@@ -1,5 +1,5 @@
 abacus<-function(state_rec, times,states=NULL,labels=NULL,add=FALSE,xlim=NULL,tunit="month", format="%m/%y",col="black",
-                 ylab="Station",xlab="date",yline=4,xline=3,xcex=1.5,ycex=1.5,cex.yaxis=.75,cex.xaxis=.75,pch=15){
+                 ylab="Station",xlab="date",yline=4,xline=3,cex=1,xcex=1.5,ycex=1.5,cex.yaxis=.75,cex.xaxis=.75,pch=15){
   length.out<-length(state_rec)
   if(is.null(states)){
     states<-unique(state_rec)
@@ -25,5 +25,5 @@ abacus<-function(state_rec, times,states=NULL,labels=NULL,add=FALSE,xlim=NULL,tu
     mtext(text = xlab,side = 1,line = xline, cex = xcex)
     mtext(text = ylab,side = 2,line = yline, cex = ycex)
   }
-  points(order ~ times,pch=pch,col=col)
+  points(order ~ times,pch=pch,col=col,cex=cex)
 }
