@@ -40,6 +40,7 @@ logGen<-function(state_rec,times,Time_Step,start,end,states=NULL){
   }
   rownames(log)<-seq(Start_P,End_P,by=Time_Step)
   colnames(log)<-states
+  log<-as.data.frame(log)
   return(log)
 }
 

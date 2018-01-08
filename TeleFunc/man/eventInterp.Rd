@@ -8,7 +8,7 @@ Interpret during events
 Identify events such as strings of NA and then linearly interpolating across them
 }
 \usage{
-eventInterp(dat, event, clip = "none", na.rm = FALSE, nas = FALSE, duration = NULL)
+eventInterp(dat,x, events, ...)
 }
 
 \arguments{
@@ -18,18 +18,13 @@ data set that the interpolated dataset will go into
   \item{x}{
 A logical statement in which the output is TRUE or FALSE
 }
-  \item{clip}{
-Defaults to "none", If set to "buffer" a false if placed on each end of the string,if set to TRUE the data is clipped to the first and last time when the event did not occur
+  \item{events}{
+Supplied instead of x, as 2 column start and end calues
 }
-  \item{na.rm}{
-TRUE/FALSE should NAs be handled
+  \item{...}{
+additionally arguments supplied to event function
 }
-  \item{nas}{
-if na.rm is set to true, what should NAs be replaced with TRUE/FALSE
-}
-  \item{duration}{
-Numeric number selecting the minimum duration of an event
-}
+ 
 }
 \details{
 See description of event

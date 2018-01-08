@@ -1,6 +1,6 @@
 
 #General function to add polygon shape onto plot and scale it
-shapePlot<-function(x, y, shapeX=NULL,shapeY=NULL,ang=0,exp=1,col="lightblue4"){
+shapePlot<-function(x, y, shapeX=NULL,shapeY=NULL,ang=0,exp=1,...){
   op<-par()
   xdif<-op$usr[2]-par()$usr[1]
   ydif<-op$usr[4]-par()$usr[3]
@@ -14,13 +14,13 @@ shapePlot<-function(x, y, shapeX=NULL,shapeY=NULL,ang=0,exp=1,col="lightblue4"){
   xlocs<-(xy[1,]*exp*(xdif/2)) + x
   ylocs<-(xy[2,]*exp*windasp*(ydif/2)) + y
   
-  polygon(x=xlocs,y=ylocs, col=col)  
+  polygon(x=xlocs,y=ylocs,...)  
   
 }
 
 
 #Add a polygon of a shark from an overhead perspective
-sharkback<-function(x, y, ang=0,exp=1,col="lightblue4"){
+sharkback<-function(x, y, ang=0,exp=1,...){
   
   ylocs<-c(1.002,  0.988,  0.920,  0.857,  0.752,  0.643,  0.594,  0.494,
            0.462, 0.430, 0.371, 0.321, 0.258, 0.172, 0.117, 0.131, 0.172, 0.185,
@@ -39,18 +39,18 @@ sharkback<-function(x, y, ang=0,exp=1,col="lightblue4"){
            0.116,  0.112,  0.112,  0.116,  0.122,  0.128,  0.132,  0.132,
            0.138,  0.203,  0.303,  0.371,  0.397,  0.378, 0.326,  0.258, 0.171,  0.133,
            0.135,  0.135,  0.128,  0.103,  0.086,  0.051, 0.025,  0.002)
-  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, col=col)
+  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, ...)
   
   
   ylocs<-c(0.24,  0.122,  0.058, -0.06, -0.06,  0.058,  0.122,  0.24)
   xlocs<-c(-0.005, -0.031, -0.027, -0.004,  0.004,  0.027,  0.031,  0.005)
   
-  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, col=col)
+  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, ...)
 }
 
 
 #Add a polygon of a profile of a shark. To visualize pitch
-shark<-function(x, y, ang=0,exp=1,col="lightblue4"){  
+shark<-function(x, y, ang=0,exp=1,...){  
   xlocs<-c(-0.540, -0.695, -0.705, -0.645, -0.750, -0.745, -0.535,
            -0.075, -0.105, -0.100, 0.075, 0.295, 0.470, 0.575,
            0.605, 0.615, 0.535, 0.345, 0.015, -0.175)
@@ -59,11 +59,11 @@ shark<-function(x, y, ang=0,exp=1,col="lightblue4"){
             0.125, 0.245, 0.275, 0.130, 0.115, 0.090, 0.040, 0.005,
             -0.030, -0.070, -0.110, -0.125, -0.105)
   
-  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, col=col)
+  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp,...)
 }
 
 #Add a polygon of a shark looking head on at it. To visualize roll
-sharkhead<-function(x,y,ang=0,exp=1,col="lightblue4"){
+sharkhead<-function(x,y,ang=0,exp=1,...){
   ylocs<-c(-0.27705, -0.26344, -0.23170, -0.17276, -0.18636,
            -0.22263, -0.26344, -0.33, -0.23624, -0.16822,
            -0.11834, -0.07753,  0.03582,  0.15371,  0.23986,
@@ -83,6 +83,6 @@ sharkhead<-function(x,y,ang=0,exp=1,col="lightblue4"){
            0.358813,  0.431627,  0.544894,  0.641980,  0.75,
            0.625799,  0.528713,  0.423537,  0.346677,  0.269817,
            0.124188, -0.001213)  
-  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, col=col)
+  shapePlot(x=x, y=y, shapeX=xlocs, shapeY=ylocs, ang=ang, exp=exp, ...)
 }
 

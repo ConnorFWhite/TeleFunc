@@ -19,17 +19,17 @@ A logical statement in which the output is TRUE or FALSE
 Defaults to 0, If set to 2, a false if placed on each end of the string,if set to 1 the data is clipped to the first and last time when the event did not occur
 }
   \item{nas}{
-What should NAs in x be replaced with TRUE/FALSE
+What should NAs in x be replaced with: TRUE/FALSE
 }
   \item{duration}{
-Numeric number selecting the minimum and max duration of selected events in datapoints, NA is infinity
+vector of minimum and max duration(in datapoints) of selected events, NA is infinity
 }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
- Returns a matix of two columns
+ Returns a dataframe of two columns
  
  \item{start }{the location in the original vector at which the event starts}
  \item{end }{the location in the original vector at which the event stops}

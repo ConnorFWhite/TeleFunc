@@ -58,29 +58,12 @@ bend<-function(loc1,loc2,bend=.1,n=100){
 }
 
 
-plot.null<-function(locs,dect=NULL,xlim=NULL,ylim=NULL){
-  if(is.null(xlim)){
-    xr<-max(locs[,3])-min(locs[,3])
-    xr<-xr*.05
-    xlim=c((min(locs[,3])-xr),(max(locs[,3])+xr))
-  }
-  if(is.null(ylim)){
-    yr<-max(locs[,2])-min(locs[,2])
-    yr<-yr*.05
-    ylim=c((min(locs[,2])-yr),(max(locs[,2])+yr))
-  }
+plot.null<-function(locs,dect=NULL,...){
   if(is.null(dect)){
-    plot(locs[,2]~locs[,3],type="n",ylab=" ",xlab= " ",
-         xlim=xlim,ylim=ylim, yaxt="n",xaxt="n",asp=1)
+    plot(locs[,2]~locs[,3],type="n",asp=1,...)
   } else{
-     plot(locs[(dect>0),2]~locs[(dect>0),3],type="n",ylab=" ",xlab= " ",
-       xlim=xlim,ylim=ylim, yaxt="n",xaxt="n",asp=1)
+     plot(locs[(dect>0),2]~locs[(dect>0),3],type="n",asp=1,...)
   }
-}
-
-
-plot.bub<-function(locs,size=1,pch=21,col="black",bg="lightBlue"){
-  points(locs[,2]~locs[,3],cex=size,pch=pch,bg=bg,col=col)
 }
 
 
@@ -100,33 +83,29 @@ plot.tran<-function(locs, lwd=1, col="black",bend = .05, head=.1){
 
 
 
-plot.transmat<-function(locs,
-                        bub.pch=21,bub.cex=1,bub.col="black",bub.bg=rgb(0,0,1,.5),
-                        line.lwd=1,line.col="black",bend=.1,head=.1){
-  plot.bub(locs,size=bub.cex,pch=bub.pch,col=bub.col,bg=bub.bg)
-  if(any(line.lwd)>0){
+plot.transmat<-function(locs, line.lwd=1,line.col="black",bend=.1,head=.1, ...){
+  points(locs[,2]~locs[,3],...)
+  if(any(line.lwd>0)){
       plot.tran(locs,lwd=line.lwd,col=line.col,bend=bend,head=head)
   }
 }
 
 
 transBub<-function(Trans,locs=NULL,
-                   bubsize=c(1,5),lims.b=NULL,bub.pch=21,bub.col="black",bub.bg=rgb(0,0,1,.5),bubsqrt=FALSE,
-                   linesize=c(1,5),lims.l=NULL,line.col="black",bend=.1,head=.1,linesqrt=FALSE,
-                   add=FALSE,xlim=NULL,ylim=c(NULL)){
+                   bubsize=c(1,5),lims.b=NULL,bubsqrt=FALSE,
+                   linesize=c(1,5),lims.l=NULL,linesqrt=FALSE,line.col="black",bend=.1,head=.1,
+                   add=FALSE,...){
   if(is.null(locs)){
     locs<-circLocs(n=ncol(Trans))
   }
   if(add==FALSE){
-    plot.null(locs,xlim=xlim,ylim=ylim)
+    plot.null(locs,...)
   }
   counts<-totcount(Trans)
   bub.cex<-bubcex(counts$StateCount,bubsize=bubsize,lims.b=lims.b,sqrt=bubsqrt)
   line.lwd<-transLwd(counts$TransCount,linesize=linesize,lims.l=lims.l,sqrt=linesqrt)
   
-  plot.transmat(locs=locs,
-                bub.cex=bub.cex, bub.col=bub.col, bub.bg=bub.bg, bub.pch=bub.pch,
-                line.lwd=line.lwd,line.col=line.col,bend=bend,head=head)
+  plot.transmat(locs=locs,cex=bub.cex,line.lwd=line.lwd,line.col=line.col,bend=bend,head=head,...)
   
 }
 

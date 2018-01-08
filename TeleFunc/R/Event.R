@@ -53,17 +53,18 @@ event<-function(x,ends=0, nas=TRUE,duration = c(NA,NA)){
     start<-start[loc]
     end<-end[loc]
   }
-  return(cbind(start,end))
+  
+  return(data.frame(start,end))
 }
 
 
 
 
-eventInterp<-function(dat,x=NULL,events=NULL,ends="none",na.rm=FALSE,nas=FALSE,duration=c(NA,NA)){
+eventInterp<-function(dat,x=NULL,events=NULL,...){
   if(is.numeric(dat)==FALSE){stop("data must be numeric to be interpolated")}
   
   if(!is.null(x)){
-    loc<-event(x,ends=ends,nas=nas,duration=duration)
+    loc<-event(x,...)
   }else{
     loc<-events
   }
