@@ -30,7 +30,7 @@ BendFigureZ<-function(X,Y,Z,ang){
 }
 
 
-Draw_XY_WS<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XY_WS<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   whiteshark<-cbind(c(1.002,  0.988,  0.920,  0.857,  0.752,  0.643,  0.594,  0.494,
                       0.462, 0.430, 0.371, 0.321, 0.258, 0.172, 0.117, 0.131, 0.172, 0.185,
@@ -59,13 +59,13 @@ Draw_XY_WS<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
              rep(0,7))
   
   XYFig<-BendFigureZ(X=whiteshark[,1],Y=whiteshark[,2],Z=whiteshark[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=DorsalFin[,1],Y=DorsalFin[,2],Z=DorsalFin[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
   
 }
@@ -74,7 +74,7 @@ Draw_XY_WS<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
 
 
 
-Draw_XZ_Nurse<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
+Draw_XZ_Nurse<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   nurse<-cbind(c(0.870,  0.825,  0.764,  0.699,  0.623,  0.541,  0.459,  0.376,  0.302,  0.243,  0.194,  0.162,
                  0.132,  0.099,  0.069,  0.031,  0.001, -0.023, -0.047, -0.065, -0.083, -0.098, -0.105, -0.110,
@@ -118,16 +118,16 @@ Draw_XZ_Nurse<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
   
   
   XYFig<-BendFigureZ(X=nurse[,1],Y=nurse[,2],Z=nurse[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="navajowhite4",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="navajowhite4",border="darkgrey")
   
   #  XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  #  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="orange",border="black")
+  #  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
 
-Draw_XZ_Tiger<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
+Draw_XZ_Tiger<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   Tiger<-cbind(c( -0.108, -0.147, -0.183, -0.207,
                   -0.223, -0.238, -0.249, -0.258, -0.272, -0.285,
@@ -221,41 +221,41 @@ Draw_XZ_Tiger<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
   
   
   XYFig<-BendFigureZ(X=Tiger[,1],Y=Tiger[,2],Z=Tiger[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   
   XYFig<-BendFigureZ(X=stripe1[,1],Y=stripe1[,2],Z=stripe1[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   
   XYFig<-BendFigureZ(X=stripe2[,1],Y=stripe2[,2],Z=stripe2[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe3[,1],Y=stripe3[,2],Z=stripe3[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe4[,1],Y=stripe4[,2],Z=stripe4[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe5[,1],Y=stripe5[,2],Z=stripe5[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe6[,1],Y=stripe6[,2],Z=stripe6[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe7[,1],Y=stripe7[,2],Z=stripe7[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe8[,1],Y=stripe8[,2],Z=stripe8[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
-Draw_XY_Tiger<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XY_Tiger<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   
   Tiger<-cbind(c( -0.928, -0.926, -0.923, -0.919, -0.912, -0.900,
@@ -337,53 +337,53 @@ Draw_XY_Tiger<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
              rep(0,7))
   
   XYFig<-BendFigureZ(X=Tiger[,1],Y=Tiger[,2],Z=Tiger[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=stripe1[,1],Y=stripe1[,2],Z=stripe1[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe2[,1],Y=stripe2[,2],Z=stripe2[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe3[,1],Y=stripe3[,2],Z=stripe3[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   XYFig<-BendFigureZ(X=stripe3[,1],Y=stripe3[,2]*-1,Z=stripe3[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe4[,1],Y=stripe4[,2],Z=stripe4[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   XYFig<-BendFigureZ(X=stripe4[,1],Y=stripe4[,2]*-1,Z=stripe4[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe5[,1],Y=stripe5[,2],Z=stripe5[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   XYFig<-BendFigureZ(X=stripe5[,1],Y=stripe5[,2]*-1,Z=stripe5[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe6[,1],Y=stripe6[,2],Z=stripe6[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   XYFig<-BendFigureZ(X=stripe6[,1],Y=stripe6[,2]*-1,Z=stripe6[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe7[,1],Y=stripe7[,2],Z=stripe7[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   XYFig<-BendFigureZ(X=stripe7[,1],Y=stripe7[,2]*-1,Z=stripe7[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=stripe8[,1],Y=stripe8[,2],Z=stripe8[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   XYFig<-BendFigureZ(X=stripe8[,1],Y=stripe8[,2]*-1,Z=stripe8[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="darkgrey",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="darkgrey",border=NA)
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
 
 
-Draw_XZ_Bull<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
+Draw_XZ_Bull<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   Tiger<-cbind(c( -0.108, -0.147, -0.183, -0.207,
                   -0.223, -0.238, -0.249, -0.258, -0.272, -0.285,
@@ -467,13 +467,13 @@ Draw_XZ_Bull<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
   
   
   XYFig<-BendFigureZ(X=Tiger[,1],Y=Tiger[,2],Z=Tiger[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
-Draw_XY_Bull<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XY_Bull<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   
   Tiger<-cbind(c( -0.928, -0.926, -0.923, -0.919, -0.912, -0.900,
@@ -545,16 +545,16 @@ Draw_XY_Bull<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
              rep(0,7))
   
   XYFig<-BendFigureZ(X=Tiger[,1],Y=Tiger[,2],Z=Tiger[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="navajowhite4",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="navajowhite4",border="darkgrey")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
 
-Draw_XZ_SB<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
+Draw_XZ_SB<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   Sandbar<-cbind(c(0.655,  0.701,  0.740,  0.777,  0.802,  0.821,  0.828,  0.820,  0.794,
                    0.754,  0.704,  0.654,  0.608,  0.562,  0.516,  0.472,  0.435,  0.400,
                    0.369,  0.342,  0.326,  0.301,  0.270,  0.232,  0.203,  0.179,  0.162,
@@ -596,14 +596,14 @@ Draw_XZ_SB<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
              rep(0,8),
              c(.225,.205,.19,.19,.21,.22,.24,.24)+.05)
   XYFig<-BendFigureZ(X=Sandbar[,1],Y=Sandbar[,2],Z=Sandbar[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
 }
 
 
-Draw_XY_SB<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XY_SB<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   Blacktip<-cbind(c(0.930,  0.919,  0.903,  0.885,
                     0.861,  0.835,  0.806,  0.777,  0.747,  0.710,  0.670,
@@ -662,16 +662,16 @@ Draw_XY_SB<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
              rep(0,7))
   
   XYFig<-BendFigureZ(X=Blacktip[,1],Y=Blacktip[,2],Z=Blacktip[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
 
-Draw_XZ_HH<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
+Draw_XZ_HH<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   Hammerhead<-cbind(c(0.507,  0.466,  0.417,  0.376,  0.336,  0.303,  0.271,  0.247,
                       0.230,  0.216,  0.199,  0.177,  0.157,  0.133,  0.106,  0.077,
                       0.058,  0.039,  0.021,  0.008,  0.003,  0.003,  0.006,  0.012,
@@ -725,16 +725,16 @@ Draw_XZ_HH<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
              rep(0,8),
              c(.225,.205,.19,.19,.21,.22,.24,.24)-.05)
   XYFig<-BendFigureZ(X=Hammerhead[,1],Y=Hammerhead[,2],Z=Hammerhead[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
 
-Draw_XY_HH<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XY_HH<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   Hammerhead<-cbind(c( -1.149,-0.82, -0.499, -0.402, -0.326,
                        -0.269, -0.228, -0.202, -0.183, -0.170, -0.165, -0.161, -0.160,
                        -0.158, -0.151, -0.139, -0.125, -0.111, -0.099, -0.091, -0.082,
@@ -782,18 +782,18 @@ Draw_XY_HH<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
              rep(0,7))
   
   XYFig<-BendFigureZ(X=Hammerhead[,1],Y=Hammerhead[,2],Z=Hammerhead[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
 
 
-Draw_YZ_HH<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_YZ_HH<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   Hammerhead<-cbind(0,
                     c(0.001213, -0.12418, -0.269817, -0.346677, -0.423537, 
                       -0.528713, -0.625799, -0.75, -0.64198, -0.544894, -0.431627, 
@@ -821,17 +821,17 @@ Draw_YZ_HH<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
   
   
   XYFig<-BendFigureZ(X=Hammerhead[,1],Y=Hammerhead[,2],Z=Hammerhead[,3],ang=0)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,2],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,2],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=0)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,2],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,2],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
 
-Draw_XZ_BT<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
+Draw_XZ_BT<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   #######Listing all the parts of the shark
   Blacktip<-cbind(c(-0.017, -0.064, -0.107, -0.153, -0.199, -0.236, -0.267, -0.292, -0.312, -0.326, -0.337, -0.345,
                     -0.351, -0.356, -0.365, -0.379, -0.401, -0.422, -0.445, -0.461, -0.474, -0.483, -0.495, -0.514,
@@ -887,29 +887,29 @@ Draw_XZ_BT<-function(x=0,y=0,TBAng=0,Pitch=0,exp=1){
   
   
   XYFig<-BendFigureZ(X=Blacktip[,1],Y=Blacktip[,2],Z=Blacktip[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=DorsalTip[,1],Y=DorsalTip[,2],Z=DorsalTip[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="black",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border="black")
   
   XYFig<-BendFigureZ(X=PecTip[,1],Y=PecTip[,2],Z=PecTip[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="black",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border="black")
   
   XYFig<-BendFigureZ(X=TailTip[,1],Y=TailTip[,2],Z=TailTip[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="black",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border="black")
   
   XYFig<-BendFigureZ(X=PelvicTip[,1],Y=PelvicTip[,2],Z=PelvicTip[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="black",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border="black")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Pitch*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
   
   
 }
 
 
-Draw_XY_BT<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XY_BT<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   Blacktip<-cbind(c(0.930,  0.919,  0.903,  0.885,
                     0.861,  0.835,  0.806,  0.777,  0.747,  0.710,  0.670,
@@ -972,16 +972,16 @@ Draw_XY_BT<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
   Pec2<-Blacktip[130:138,]
   
   XYFig<-BendFigureZ(X=Blacktip[,1],Y=Blacktip[,2],Z=Blacktip[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="grey",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
   
   XYFig<-BendFigureZ(X=Pec1[,1],Y=Pec1[,2],Z=Pec1[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="black",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="black",border="black")
   
   XYFig<-BendFigureZ(X=Pec2[,1],Y=Pec2[,2],Z=Pec2[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="black",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="black",border="black")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
   
 }
@@ -989,7 +989,7 @@ Draw_XY_BT<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
 
 
 
-Draw_XZ_RD<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XZ_RD<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   body<-cbind(c(  -0.111, -0.204, -0.281, -0.366, -0.455, -0.531, -0.602, -0.668, -0.725,
                   -0.774, -0.822, -0.860, -0.892, -0.925, -0.947, -0.952, -0.944, -0.919,
@@ -1101,55 +1101,55 @@ Draw_XZ_RD<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
   
   
   XYFig<-BendFigureZ(X=fin1[,1],Y=fin1[,2],Z=fin1[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=fin2[,1],Y=fin2[,2],Z=fin2[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=fin3[,1],Y=fin3[,2],Z=fin3[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=fin4[,1],Y=fin4[,2],Z=fin4[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=fin5[,1],Y=fin5[,2],Z=fin5[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=body[,1],Y=body[,2],Z=body[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="lightsalmon3",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon3",border=NA)
   
   XYFig<-BendFigureZ(X=belly[,1],Y=belly[,2],Z=belly[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="seashell2",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="seashell2",border=NA)
   
   XYFig<-BendFigureZ(X=Spot1[,1],Y=Spot1[,2],Z=Spot1[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="seashell2",border="seashell2")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="seashell2",border="seashell2")
   
   XYFig<-BendFigureZ(X=Spot2[,1],Y=Spot2[,2],Z=Spot2[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="black",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
   
   XYFig<-BendFigureZ(X=eye[,1],Y=eye[,2],Z=eye[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="goldenrod4",border="goldenrod4")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border="goldenrod4")
   
   XYFig<-BendFigureZ(X=pupil[,1],Y=pupil[,2],Z=pupil[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="black",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
   
   XYFig<-BendFigureZ(X=fin6[,1],Y=fin6[,2],Z=fin6[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=opercle[,1],Y=opercle[,2],Z=opercle[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="black",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
   
   XYFig<-BendFigureZ(X=antenna[,1],Y=antenna[,2],Z=antenna[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="black",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = Rot*(180/pi),exp = exp,col="orange",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border=NA)
   
 }
 
 
 
-Draw_XY_RD<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
+Draw_XY_RD<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   
   body<-cbind(c(c(-0.9256, -0.9152, -0.9152, -0.9048, -0.8944, -0.8736, -0.8528, -0.8216, -0.7696, -0.728, -0.676, -0.6032, -0.5304,
@@ -1181,24 +1181,24 @@ Draw_XY_RD<-function(x=0,y=0,TBAng=0,Rot=0,exp=1){
                  0)
   
   XYFig<-BendFigureZ(X=body[,1],Y=body[,2],Z=body[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="lightsalmon3",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="lightsalmon3",border=NA)
   
   XYFig<-BendFigureZ(X=fin1[,1],Y=fin1[,2],Z=fin1[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=fin2[,1],Y=fin2[,2],Z=fin2[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
   
   XYFig<-BendFigureZ(X=antenna[,1],Y=antenna[,2],Z=antenna[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="black",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="black",border="black")
   
   XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = Rot*(180/pi),exp = exp,col="orange",border="black")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
   
 }
 
 
-drawSnake_YZ<-function(x=0,y=0,Rot=0,exp=1){
+Draw_YZ_Snake<-function(x=0,y=0,rot=0,exp=1){
   
   head<-cbind(0,
               c(0.0281, 0.0326, 0.0469, 0.0738, 0.1091, 0.1706, 0.241, 0.3243, 0.406, 0.4952, 0.5724, 0.6541, 0.7231, 0.7861, 0.8378, 0.8783, 0.9038, 0.9196, 0.9256, 0.9173, 0.8933, 0.8476, 0.7771, 0.6886, 0.5814, 0.4637, 0.3438, 0.2388, 0.1518, 0.0933, -0.0933, -0.1518, -0.2388, -0.3438, -0.4637, -0.5814, -0.6886, -0.7771, -0.8476, -0.8933, -0.9173, -0.9256, -0.9196, -0.9038, -0.8783, -0.8378, -0.7861, -0.7231, -0.6541, -0.5724, -0.4952, -0.406, -0.3243, -0.241, -0.1706, -0.1091, -0.0738, -0.0469, -0.0326, -0.0281),
@@ -1229,13 +1229,13 @@ drawSnake_YZ<-function(x=0,y=0,Rot=0,exp=1){
              (cos(seq(-pi,pi,length.out=20))*.06) +.511 - .3
   )
   
-  TeleFunc::shapePlot(x=x,y=y,shapeX = head[,2],shapeY= head[,3],ang = Rot*(180/pi),exp = exp,col=rgb(139-40,69-25,19-10,maxColorValue = 256),border=NA)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = bottomJaw[,2],shapeY= bottomJaw[,3],ang = Rot*(180/pi),exp = exp,col="burlywood2",border=NA)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = c(upperlip[,2],rev(upperlip[,2])),shapeY= c(upperlip[,3],upperlip[,3]-.03),ang = Rot*(180/pi),exp = exp,col="black",border=NA)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = stripe[,2],shapeY= stripe[,3],ang = Rot*(180/pi),exp = exp,col="burlywood4",border=NA)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = stripe[,2] * -1,shapeY= stripe[,3],ang = Rot*(180/pi),exp = exp,col="burlywood4",border=NA)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = eye[,2],shapeY= eye[,3],ang = Rot*(180/pi),exp = exp,col="black",border=NA)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = eye[,2] * -1,shapeY= eye[,3],ang = Rot*(180/pi),exp = exp,col="black",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = head[,2],shapeY= head[,3],ang = rot*(180/pi),exp = exp,col=rgb(139-40,69-25,19-10,maxColorValue = 256),border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = bottomJaw[,2],shapeY= bottomJaw[,3],ang = rot*(180/pi),exp = exp,col="burlywood2",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = c(upperlip[,2],rev(upperlip[,2])),shapeY= c(upperlip[,3],upperlip[,3]-.03),ang = rot*(180/pi),exp = exp,col="black",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = stripe[,2],shapeY= stripe[,3],ang = rot*(180/pi),exp = exp,col="burlywood4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = stripe[,2] * -1,shapeY= stripe[,3],ang = rot*(180/pi),exp = exp,col="burlywood4",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = eye[,2],shapeY= eye[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = eye[,2] * -1,shapeY= eye[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
   
 }
 
