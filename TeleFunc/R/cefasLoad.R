@@ -1,7 +1,7 @@
 readCefas<-function(file,time=FALSE){
   
   ####Working on multiple time formats.....
-  tformats<-c("%d-%m-%Y %H:%M:%S","%d-%m-%y %H:%M:%S","%d/%m/%y %H:%M:%S","%d/%m/%Y %H:%M:%S")
+  tformats<-c("%d-%m-%Y %H:%M:%S","%d-%m-%y %H:%M:%S","%d/%m/%y %H:%M:%S","%d/%m/%Y %H:%M:%S","%Y-%m-%d %I:%M:%S %p","%m-%d-%Y %I:%M:%S %p","%m/%d/%Y %I:%M:%S %p")
   
   dat<-read.table(file,col.names=paste("column", 1:10, sep="_"),fill=TRUE,sep=",")
   dat<-dat[(((grep(pattern = "Time Stamp", x = as.character(dat[,1]))[1])-6):nrow(dat)),]
@@ -22,9 +22,10 @@ readCefas<-function(file,time=FALSE){
       }
       if(any(!is.na(tout))){
         tformat<-tformats[which(!is.na(tout))]
-        datBl[,1] <- as.POSIXct(as.character(datBl[,1]),format=tformat)
+        datBl[,1] <- as.POSIXct(as.character(datBl[1,1]),format=tformat) + seq(0,length.out=nrow(datBl),by=0.04)
       }else{
-        datBl[,1] <- as.POSIXct(strsplit(as.character(datBl[1,1]),split="\\.")[[1]][1],format="%Y-%m-%d %I:%M:%S %p") + seq(0,length.out=nrow(datBl),by=0.04)
+        tsplit<-strsplit(as.character(datBl[1,1]),split="\\.")[[1]][1]
+        datBl[,1] <- as.POSIXct(tsplit,format="%Y-%m-%d %I:%M:%S %p")
       }
     }
     
