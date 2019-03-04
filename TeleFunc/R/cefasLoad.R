@@ -22,7 +22,7 @@ readCefas<-function(file,time=FALSE){
       }
       if(any(!is.na(tout))){
         tformat<-tformats[which(!is.na(tout))]
-        datBl[,1] <- as.POSIXct(as.character(datBl[1,1]),format=tformat) + seq(0,length.out=nrow(datBl),by=0.04)
+        datBl[,1] <- as.POSIXct(as.character(datBl[,1]),format=tformat) 
       }else{
         tsplit<-strsplit(as.character(datBl[1,1]),split="\\.")[[1]][1]
         datBl[,1] <- as.POSIXct(tsplit,format="%Y-%m-%d %I:%M:%S %p")
