@@ -19,11 +19,11 @@ circLines<-function(daty,datx,lims=c(-180,180),...){
       segments(x0=datSeg[loc[i],1],
                x1=(datSeg[loc[i],2] + datSeg[loc[i],1])/2,
                y0=datSeg[loc[i],3],
-               y1=lims[which.min(c(abs(lims[2]-datSeg[loc[i],3]), abs(lims[1]-datSeg[loc[i],3])))],...
+               y1=lims[which.min(c(abs(lims[1]-datSeg[loc[i],3]), abs(lims[2]-datSeg[loc[i],3])))],...
       )
       segments(x0=(datSeg[loc[i],2] + datSeg[loc[i],1])/2,
                x1=datSeg[loc[i],2],
-               y0=lims[which.min(c(abs(lims[2]-datSeg[loc[i],4]), abs(lims[1]-datSeg[loc[i],4])))],
+               y0=lims[which.min(c(abs(lims[1]-datSeg[loc[i],4]), abs(lims[2]-datSeg[loc[i],4])))],
                y1=datSeg[loc[i],4],...
       )
     }
