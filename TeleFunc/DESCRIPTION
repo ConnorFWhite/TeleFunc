@@ -8,7 +8,5 @@ Authors@R: person("Connor", "White", email = "Connor.White@gmail.com",
 Description: Assorted functions with timeseries data
 License: MIT + file LICENSE
 Imports:
-    plyr,
-    raster,
-    proj4
+    plyr
 RoxygenNote: 5.0.1
