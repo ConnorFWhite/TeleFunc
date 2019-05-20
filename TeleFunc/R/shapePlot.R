@@ -1796,3 +1796,146 @@ Draw_XY_Turtle<-function(x=0,y=0,heading=0,finAmp=-10,finAng=0,exp=1){
   shapePlot(x=x,y=y,shapeX = shell[,2],shapeY=shell[,1],ang = heading,col="orange4",exp=exp)
 
 }
+
+
+
+
+Draw_XY_Tuna<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
+  
+  
+  
+  fin2<-cbind(-1*c(0.008, -0.011, -0.025, -0.002, 0.026, 0.055, 0.085, 0.11, 0.137, 0.165, 0.194, 0.226, 0.263, 0.303, 0.336, 0.361, 0.372, 0.371, 0.356, 0.335, 0.306, 0.277, 0.248, 0.22, 0.195, 0.171, 0.149, 0.132, 0.119, 0.111, 0.11, 0.114, 0.122, 0.129, 0.135, 0.131, 0.124, 0.084, 0.044), rep(0,39), c(-0.24, -0.263, -0.288, -0.305, -0.33, -0.36, -0.391, -0.427, -0.462, -0.497, -0.526, -0.551, -0.572, -0.585, -0.592, -0.594, -0.595, -0.594, -0.588, -0.582, -0.569, -0.549, -0.526, -0.498, -0.467, -0.434, -0.399, -0.364, -0.334, -0.304, -0.282, -0.263, -0.247, -0.234, -0.224, -0.213, -0.205, -0.214, -0.224))
+  
+  fin1<-fin2
+  fin1[,3] <- fin2[,3]*-1 - .07
+  fin1[,1] <- fin2[,1]- 0.07
+  
+  
+  pecfin<-cbind(-1*c(-0.508, -0.521, -0.535, -0.54, -0.547, -0.554, -0.559, -0.562, -0.564, -0.561, -0.554, -0.541, -0.52, -0.491, -0.453, -0.415, -0.372, -0.33, -0.292, -0.26, -0.232, -0.214, -0.207, -0.211, -0.222, -0.238, -0.261, -0.285, -0.314, -0.346, -0.379, -0.408, -0.436, -0.453, -0.466, -0.472, -0.476, -0.476, -0.487, -0.497), rep(0,40), c(-0.158, -0.147, -0.133, -0.126, -0.117, -0.11, -0.104, -0.101, -0.1, -0.098, -0.096, -0.092, -0.088, -0.083, -0.078, -0.076, -0.075, -0.077, -0.078, -0.085, -0.09, -0.095, -0.1, -0.107, -0.113, -0.122, -0.133, -0.142, -0.152, -0.162, -0.169, -0.175, -0.179, -0.182, -0.184, -0.185, -0.185, -0.186, -0.177, -0.168))
+  
+  pelvicFin<-cbind(-1*c(-0.504, -0.513, -0.521, -0.517, -0.513, -0.508, -0.503, -0.495, -0.485, -0.473, -0.462, -0.452, -0.446, -0.441, -0.441, -0.439, -0.437, -0.436, -0.436, -0.436, -0.437, -0.44, -0.444, -0.451, -0.458, -0.464, -0.479, -0.493), rep(0,28), c(-0.31, -0.312, -0.315, -0.321, -0.331, -0.351, -0.377, -0.408, -0.443, -0.477, -0.505, -0.525, -0.536, -0.533, -0.52, -0.495, -0.464, -0.433, -0.405, -0.384, -0.373, -0.365, -0.354, -0.341, -0.329, -0.317, -0.31, -0.308))
+  
+  dorsalFin<-cbind(-1*c(-0.428, -0.466, -0.504, -0.504, -0.503, -0.499, -0.491, -0.483, -0.473, -0.463, -0.457, -0.453, -0.452, -0.449, -0.442, -0.428, -0.411, -0.391, -0.369, -0.342, -0.318, -0.294, -0.267, -0.242, -0.22, -0.202, -0.186, -0.178, -0.171, -0.169, -0.174, -0.18, -0.193, -0.217, -0.246, -0.271, -0.331, -0.386), rep(0,38), c(0.193, 0.185, 0.176, 0.186, 0.205, 0.234, 0.28, 0.333, 0.382, 0.423, 0.452, 0.466, 0.471, 0.467, 0.457, 0.441, 0.421, 0.395, 0.37, 0.347, 0.329, 0.313, 0.303, 0.296, 0.292, 0.288, 0.286, 0.285, 0.285, 0.285, 0.278, 0.266, 0.253, 0.241, 0.227, 0.221, 0.211, 0.202))
+  
+  tail<-cbind(-1*c(0.66, 0.665, 0.671, 0.677, 0.683, 0.691, 0.699, 0.71, 0.72, 0.733, 0.749, 0.767, 0.786, 0.804, 0.822, 0.844, 0.864, 0.885, 0.907, 0.928, 0.945, 0.958, 0.966, 0.971, 0.971, 0.967, 0.961, 0.95, 0.935, 0.919, 0.9, 0.882, 0.866, 0.854, 0.843, 0.835, 0.83, 0.832, 0.839, 0.85, 0.869, 0.89, 0.911, 0.932, 0.951, 0.966, 0.975, 0.982, 0.984, 0.979, 0.966, 0.947, 0.925, 0.898, 0.869, 0.843, 0.816, 0.788, 0.764, 0.743, 0.725, 0.71, 0.696, 0.681, 0.669, 0.659, 0.652, 0.652, 0.657), rep(0,69), c(-0.038, -0.031, -0.025, -0.023, -0.02, -0.017, -0.01, 0.004, 0.024, 0.054, 0.091, 0.134, 0.175, 0.217, 0.255, 0.292, 0.328, 0.36, 0.39, 0.413, 0.43, 0.44, 0.446, 0.448, 0.445, 0.437, 0.423, 0.402, 0.373, 0.341, 0.301, 0.253, 0.197, 0.136, 0.074, 0.012, -0.049, -0.103, -0.157, -0.213, -0.263, -0.312, -0.358, -0.394, -0.424, -0.451, -0.467, -0.477, -0.483, -0.483, -0.475, -0.458, -0.438, -0.409, -0.375, -0.334, -0.291, -0.243, -0.195, -0.153, -0.119, -0.097, -0.079, -0.07, -0.064, -0.06, -0.057, -0.049, -0.043))
+  
+  belly<-cbind(-1*c(-0.057, -0.164, -0.284, -0.387, -0.48, -0.568, -0.638, -0.69, -0.714, -0.72, -0.719, -0.712, -0.706, -0.708, -0.716, -0.713, -0.705, -0.693, -0.677, -0.661, -0.653, -0.65, -0.643, -0.625, -0.596, -0.554, -0.495, -0.426, -0.353, -0.277, -0.198, -0.127, -0.049, 0.03, 0.115, 0.198, 0.284, 0.356, 0.428, 0.491, 0.552, 0.612, 0.672, 0.72, 0.758, 0.771, 0.762, 0.726, 0.676, 0.615, 0.55, 0.477, 0.396, 0.314, 0.239, 0.14, 0.038), rep(0,57), c(0.1, 0.097, 0.094, 0.09, 0.086, 0.076, 0.068, 0.06, 0.049, 0.029, 0, -0.042, -0.095, -0.148, -0.194, -0.227, -0.251, -0.267, -0.276, -0.285, -0.292, -0.295, -0.299, -0.305, -0.314, -0.325, -0.338, -0.344, -0.348, -0.346, -0.34, -0.33, -0.312, -0.286, -0.254, -0.219, -0.179, -0.146, -0.117, -0.095, -0.079, -0.07, -0.064, -0.058, -0.053, -0.043, -0.035, -0.027, -0.019, -0.007, 0.004, 0.024, 0.045, 0.066, 0.083, 0.094, 0.098))
+  
+  head<-cbind(-1*c(-0.746, -0.727, -0.707, -0.688, -0.667, -0.645, -0.626, -0.611, -0.603, -0.599, -0.602, -0.61, -0.619, -0.632, -0.645, -0.655, -0.659, -0.662, -0.667, -0.679, -0.702, -0.735, -0.775, -0.815, -0.853, -0.888, -0.913, -0.934, -0.949, -0.962, -0.968, -0.973, -0.975, -0.97, -0.96, -0.946, -0.928, -0.911, -0.901, -0.893, -0.894, -0.899, -0.909, -0.92, -0.934, -0.943, -0.951, -0.955, -0.958, -0.949, -0.928, -0.894, -0.857, -0.812, -0.773), rep(0,55), c(0.06, 0.062, 0.058, 0.045, 0.026, 0.001, -0.031, -0.068, -0.111, -0.155, -0.197, -0.234, -0.263, -0.281, -0.292, -0.297, -0.299, -0.3, -0.297, -0.291, -0.28, -0.267, -0.25, -0.227, -0.203, -0.181, -0.156, -0.136, -0.119, -0.106, -0.094, -0.087, -0.08, -0.078, -0.079, -0.081, -0.085, -0.088, -0.091, -0.094, -0.093, -0.086, -0.076, -0.064, -0.051, -0.041, -0.036, -0.033, -0.032, -0.026, -0.015, 0, 0.019, 0.039, 0.052))
+  
+  dorsalSide<-cbind(-1*c(-0.958, -0.96, -0.962, -0.958, -0.947, -0.924, -0.888, -0.839, -0.78, -0.716, -0.643, -0.56, -0.475, -0.384, -0.289, -0.201, -0.124, -0.049, 0.025, 0.102, 0.184, 0.263, 0.343, 0.415, 0.475, 0.525, 0.575, 0.617, 0.656, 0.693, 0.725, 0.748, 0.765, 0.775, 0.768, 0.754, 0.733, 0.703, 0.664, 0.625, 0.577, 0.518, 0.452, 0.381, 0.305, 0.227, 0.16, 0.089, 0.006, -0.081, -0.178, -0.283, -0.376, -0.459, -0.539, -0.597, -0.65, -0.707, -0.751, -0.786, -0.819, -0.851, -0.873, -0.898, -0.919, -0.937, -0.947, -0.954, -0.957), rep(0,69), c(-0.027, -0.025, -0.023, -0.017, -0.005, 0.013, 0.041, 0.078, 0.113, 0.15, 0.186, 0.216, 0.238, 0.254, 0.263, 0.263, 0.256, 0.243, 0.226, 0.205, 0.176, 0.146, 0.116, 0.084, 0.055, 0.035, 0.018, 0.006, -0.001, -0.008, -0.016, -0.021, -0.026, -0.029, -0.033, -0.034, -0.035, -0.035, -0.034, -0.029, -0.02, -0.009, 0.005, 0.021, 0.034, 0.04, 0.043, 0.042, 0.039, 0.038, 0.036, 0.038, 0.039, 0.037, 0.033, 0.029, 0.023, 0.018, 0.014, 0.008, 0, -0.009, -0.017, -0.025, -0.03, -0.032, -0.032, -0.03, -0.029))
+  
+  lightbluestrip<-cbind(-1*c(-0.211, -0.369, -0.546, -0.648, -0.721, -0.78, -0.798, -0.792, -0.77, -0.732, -0.669, -0.572, -0.445, -0.292, -0.125, 0.045, 0.195, 0.325, 0.423, 0.491, 0.53, 0.538, 0.511, 0.451, 0.357, 0.265, 0.11, -0.055), rep(0,28), c(0.11, 0.097, 0.075, 0.054, 0.035, 0.019, 0.008, -0.002, -0.012, -0.022, -0.03, -0.039, -0.039, -0.033, -0.027, -0.024, -0.021, -0.019, -0.017, -0.015, -0.011, -0.002, 0.014, 0.036, 0.062, 0.088, 0.107, 0.114))
+  
+  yellowstrip<-cbind(-1*c(0.567, 0.53, 0.482, 0.424, 0.352, 0.268, 0.18, 0.093, 0.016, -0.068, -0.152, -0.232, -0.323, -0.415, -0.5, -0.575, -0.641, -0.691, -0.731, -0.754, -0.754, -0.734, -0.694, -0.638, -0.568, -0.495, -0.418, -0.344, -0.275, -0.206, -0.135, -0.064, 0.009, 0.093, 0.186, 0.277, 0.364, 0.445, 0.513, 0.559, 0.59, 0.596, 0.589), rep(0,43), c(-0.008, -0.007, -0.003, -0.003, -0.004, -0.002, 0.002, 0.003, 0.002, 0.002, 0.004, 0.003, 0.002, -0.001, -0.005, -0.01, -0.014, -0.019, -0.019, -0.02, -0.028, -0.038, -0.049, -0.066, -0.086, -0.102, -0.11, -0.115, -0.112, -0.103, -0.091, -0.083, -0.074, -0.066, -0.058, -0.051, -0.044, -0.038, -0.03, -0.026, -0.022, -0.015, -0.01))
+  
+  eye<-cbind(-1*(cos(seq(0,2*pi,by=.1))*0.033 -.83),0,(sin(seq(0,2*pi,by=.1))*.033 - 0.04))
+  pupil<-cbind(-1*(cos(seq(0,2*pi,by=.1))*0.015 -.83),0,(sin(seq(0,2*pi,by=.1))*.015 -0.04))
+
+
+  opercle<-cbind(-1*c(-0.674, -0.669, -0.661, -0.646, -0.63, -0.614, -0.603, -0.598, -0.599, -0.603, -0.61, -0.619, -0.629, -0.64, -0.648, -0.655, -0.657, -0.658, -0.668, -0.667, -0.665, -0.658, -0.65, -0.639, -0.629, -0.62, -0.613, -0.609, -0.608, -0.613, -0.624, -0.64, -0.656, -0.671, -0.679, -0.684), rep(0,36), c(0.022, 0.019, 0.01, -0.006, -0.029, -0.064, -0.104, -0.144, -0.185, -0.22, -0.244, -0.263, -0.278, -0.286, -0.292, -0.297, -0.3, -0.3, -0.3, -0.3, -0.297, -0.292, -0.286, -0.278, -0.263, -0.244, -0.22, -0.185, -0.144, -0.104, -0.064, -0.029, -0.006, 0.01, 0.019, 0.022))
+  
+  
+  XYFig<-BendFigureZ(X=tail[,1],Y=tail[,2],Z=tail[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border=NA)
+  
+  XYFig<-BendFigureZ(X=dorsalFin[,1],Y=dorsalFin[,2],Z=dorsalFin[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border=NA)
+  
+  XYFig<-BendFigureZ(X=fin1[,1],Y=fin1[,2],Z=fin1[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border=NA)
+  
+  XYFig<-BendFigureZ(X=fin2[,1],Y=fin2[,2],Z=fin2[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border=NA)
+  
+  XYFig<-BendFigureZ(X=pelvicFin[,1],Y=pelvicFin[,2],Z=pelvicFin[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border=NA)
+  
+  XYFig<-BendFigureZ(X=belly[,1],Y=belly[,2],Z=belly[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="gainsboro",border=NA)
+  
+  XYFig<-BendFigureZ(X=head[,1],Y=head[,2],Z=head[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="gainsboro",border=NA)
+  
+  XYFig<-BendFigureZ(X=lightbluestrip[,1],Y=lightbluestrip[,2],Z=lightbluestrip[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightblue",border=NA)
+  
+  XYFig<-BendFigureZ(X=yellowstrip[,1],Y=yellowstrip[,2],Z=yellowstrip[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="gold",border=NA)
+  
+  XYFig<-BendFigureZ(X=dorsalSide[,1],Y=dorsalSide[,2],Z=dorsalSide[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="navyblue",border=NA)
+  
+  XYFig<-BendFigureZ(X=eye[,1],Y=eye[,2],Z=eye[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="white",border="black")
+  
+  XYFig<-BendFigureZ(X=pupil[,1],Y=pupil[,2],Z=pupil[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
+  
+  XYFig<-BendFigureZ(X=pecfin[,1],Y=pecfin[,2],Z=pecfin[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border=NA)
+  
+  XYFig<-BendFigureZ(X=opercle[,1],Y=opercle[,2],Z=opercle[,3],ang=TBAng)
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
+  
+  
+}
+
+tba<-rep(c(seq(-pi/4,pi/4,length.out=10),seq(pi/4,-pi/4,length.out=10)),10)
+for(i in 1:length(tba)){
+plot(10)
+Draw_XY_Tuna(x=1,y=10,TBAng = tba[i])
+Sys.sleep(0.1)
+}
+
+Draw_XY_Tuna(x=1,y=10,TBAng = 0)
+
+XYFig<-BendFigureZ(X=fin1[,1],Y=fin1[,2],Z=fin1[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+
+XYFig<-BendFigureZ(X=fin2[,1],Y=fin2[,2],Z=fin2[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+
+XYFig<-BendFigureZ(X=fin3[,1],Y=fin3[,2],Z=fin3[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+
+XYFig<-BendFigureZ(X=fin4[,1],Y=fin4[,2],Z=fin4[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+
+XYFig<-BendFigureZ(X=fin5[,1],Y=fin5[,2],Z=fin5[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+
+XYFig<-BendFigureZ(X=body[,1],Y=body[,2],Z=body[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon3",border=NA)
+
+XYFig<-BendFigureZ(X=belly[,1],Y=belly[,2],Z=belly[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="seashell2",border=NA)
+
+XYFig<-BendFigureZ(X=Spot1[,1],Y=Spot1[,2],Z=Spot1[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="seashell2",border="seashell2")
+
+XYFig<-BendFigureZ(X=Spot2[,1],Y=Spot2[,2],Z=Spot2[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
+
+XYFig<-BendFigureZ(X=eye[,1],Y=eye[,2],Z=eye[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="goldenrod4",border="goldenrod4")
+
+XYFig<-BendFigureZ(X=pupil[,1],Y=pupil[,2],Z=pupil[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
+
+XYFig<-BendFigureZ(X=fin6[,1],Y=fin6[,2],Z=fin6[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="lightsalmon4",border=NA)
+
+XYFig<-BendFigureZ(X=opercle[,1],Y=opercle[,2],Z=opercle[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
+
+XYFig<-BendFigureZ(X=antenna[,1],Y=antenna[,2],Z=antenna[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
+
+XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
+TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border=NA)
+
+
+
+
+

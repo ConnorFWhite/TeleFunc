@@ -3,7 +3,7 @@ circLines<-function(daty,datx,lims=c(-180,180),...){
   daty<-as.numeric(daty)
   datx<-as.numeric(datx)
   
-  if(any(abs(ys)>lims)){
+  if(any(abs(ys)>((lims[2]-lims[1])/2))){
     
     loc<-which(abs(ys)>((lims[2]-lims[1])/2))
     datSeg<-data.frame(x0=datx[1:(length(datx)-1)],
