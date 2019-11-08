@@ -5,9 +5,9 @@ readCefas<-function(file,time=FALSE){
   
   dat<-read.table(file,col.names=paste("column", 1:10, sep="_"),fill=TRUE,sep=",")
   dat<-dat[(((grep(pattern = "Time Stamp", x = as.character(dat[,1]))[1])-6):nrow(dat)),]
-  dat<-dat[,1:4]
+  dat<-dat[,1:6]
   
-  colnames(dat)<-c("DateTime","Chanel1","Chanel2", "Chanel3")
+  colnames(dat)<-c("DateTime","Chanel1","Chanel2", "Chanel3","Chanel4", "Chanel5")
   
   blocks<-event(!is.na(as.numeric(as.character(dat$Chanel1))),ends = 2)
   
@@ -28,10 +28,10 @@ readCefas<-function(file,time=FALSE){
         datBl[,1] <- as.POSIXct(tsplit,format="%Y-%m-%d %I:%M:%S %p")
       }
     }
+    for(col in 2:6){
+      datBl[,col] <- as.numeric(as.character(datBl[,col]))
+    }
     
-    datBl[,2] <- as.numeric(as.character(datBl[,c(2)]))
-    datBl[,3] <- as.numeric(as.character(datBl[,c(3)]))
-    datBl[,4] <- as.numeric(as.character(datBl[,c(4)]))
     colnames(datBl) <- sapply((dat[(blocks[i,1]-1),]),FUN=as.character)
     colnames(datBl)[1]<-'Time Stamp'
     datBl <- datBl[,which(!is.na(datBl[1,]))]
