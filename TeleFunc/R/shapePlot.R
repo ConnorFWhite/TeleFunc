@@ -74,7 +74,7 @@ Draw_XY_WS<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
 
 
 
-Draw_XZ_Nurse<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
+Draw_XZ_Nurse<-function(x=0,y=0,TBAng=0,rot=0,exp=1,col="navajowhite4",border=NA){
   
   nurse<-cbind(c(0.870,  0.825,  0.764,  0.699,  0.623,  0.541,  0.459,  0.376,  0.302,  0.243,  0.194,  0.162,
                  0.132,  0.099,  0.069,  0.031,  0.001, -0.023, -0.047, -0.065, -0.083, -0.098, -0.105, -0.110,
@@ -118,7 +118,7 @@ Draw_XZ_Nurse<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   
   XYFig<-BendFigureZ(X=nurse[,1],Y=nurse[,2],Z=nurse[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="navajowhite4",border="darkgrey")
+  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col=col,border=border)
   
   #  XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
   #  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="orange",border="black")
@@ -1879,6 +1879,48 @@ Draw_XY_Tuna<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,3],ang = rot*(180/pi),exp = exp,col="black",border=NA)
   
   
+}
+
+
+
+Draw_YZ_miniPAT<-function(x,y,ang=0,exp=1){
+  
+  yflot<-c(cos(seq(.2,pi-.5,by=.01)),cos(seq(pi+.5,((2*pi)-.2),by=.01)))*.3
+  xflot<-c(sin(seq(.5,pi-.2,by=.01))*.7 - .1,sin(seq(pi+.2,((2*pi)-.5),by=.01))*.7 + .1)*.3
+  shapePlot(x=x, y=y, shapeX=xflot, shapeY=yflot, ang=ang, exp=exp, col="grey")
+  
+  xbod=c(0.0707,0.0707,-0.0707,-0.0707)
+  ybod<-c(.294,.8,.8,.294)
+  shapePlot(x=x, y=y, shapeX=xbod, shapeY=ybod, ang=ang, exp=exp, col="black")
+  
+  yant<-c(-0.263,-.9,-.9,-0.263)
+  xant<-c(0.005,0.005,-0.005,-0.005)
+  shapePlot(x=x, y=y, shapeX=xant, shapeY=yant, ang=ang, exp=exp, col="black")
+  
+  xnose<-sin(seq(-pi/2,pi/2,by=.1))*.0707
+  ynose<-cos(seq(-pi/2,pi/2,by=.1))*.0707+.8
+  shapePlot(x=x, y=y, shapeX=xnose, shapeY=ynose, ang=ang, exp=exp, col="orange")
+}
+
+
+
+miniPAT<-function(x,y,ang=0,exp=1){
+  
+  yflot<-c(cos(seq(.2,pi-.5,by=.01)),cos(seq(pi+.5,((2*pi)-.2),by=.01)))*.5
+  xflot<-c(sin(seq(.5,pi-.2,by=.01))*.7 - .1,sin(seq(pi+.2,((2*pi)-.5),by=.01))*.7 + .1)*.5
+  shapePlot(x=x, y=y, shapeX=xflot, shapeY=yflot, ang=ang+180, exp=exp, col="orange",border="orange")
+  
+  xbod=c(0.19,0.19,-0.19,-0.19)
+  ybod<-c(.0,.7,.7,.0)
+  shapePlot(x=x, y=y, shapeX=xbod, shapeY=ybod, ang=ang, exp=exp, col="orange",border="orange")
+  
+  yant<-c(-0.263,-.9,-.9,-0.263)
+  xant<-c(0.005,0.005,-0.005,-0.005)
+  shapePlot(x=x, y=y, shapeX=xant, shapeY=yant, ang=ang, exp=exp, col="black",border="black")
+  
+  xnose<-sin(seq(-pi/2,pi/2,by=.1))*.19
+  ynose<-cos(seq(-pi/2,pi/2,by=.1))*.19+.69
+  shapePlot(x=x, y=y, shapeX=xnose, shapeY=ynose, ang=ang, exp=exp, col="darkgrey",border="darkgrey")
 }
 
 
