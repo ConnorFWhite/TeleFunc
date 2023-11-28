@@ -603,7 +603,7 @@ Draw_XZ_SB<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
 }
 
 
-Draw_XY_SB<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
+Draw_XY_SB<-function(x=0,y=0,TBAng=0,rot=0,exp=1,Tag=TRUE){
   
   Blacktip<-cbind(c(0.930,  0.919,  0.903,  0.885,
                     0.861,  0.835,  0.806,  0.777,  0.747,  0.710,  0.670,
@@ -663,10 +663,10 @@ Draw_XY_SB<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   XYFig<-BendFigureZ(X=Blacktip[,1],Y=Blacktip[,2],Z=Blacktip[,3],ang=TBAng)
   TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
-  
-  XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
-  
+  if(Tag){
+    XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
+    TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
+  }
 }
 
 
