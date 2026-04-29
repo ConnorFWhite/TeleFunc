@@ -30,7 +30,7 @@ BendFigureZ<-function(X,Y,Z,ang){
 }
 
 
-Draw_XY_WS<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
+Draw_XY_WS<-function(x=0,y=0,TBAng=0,rot=0,exp=1,Tag="right"){
   
   whiteshark<-cbind(c(1.002,  0.988,  0.920,  0.857,  0.752,  0.643,  0.594,  0.494,
                       0.462, 0.430, 0.371, 0.321, 0.258, 0.172, 0.117, 0.131, 0.172, 0.185,
@@ -63,10 +63,14 @@ Draw_XY_WS<-function(x=0,y=0,TBAng=0,rot=0,exp=1){
   
   XYFig<-BendFigureZ(X=DorsalFin[,1],Y=DorsalFin[,2],Z=DorsalFin[,3],ang=TBAng)
   TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="grey",border="darkgrey")
-  
-  XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
-  TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
-  
+  if(tag=="right"){
+    XYFig<-BendFigureZ(X=tag[,1],Y=-tag[,2],Z=tag[,3],ang=TBAng)
+    TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
+  }
+  if(tag=="left"){
+    XYFig<-BendFigureZ(X=tag[,1],Y=tag[,2],Z=tag[,3],ang=TBAng)
+    TeleFunc::shapePlot(x=x,y=y,shapeX = XYFig[,1],shapeY=XYFig[,2],ang = rot*(180/pi),exp = exp,col="orange",border="black")
+  }
   
 }
 
